@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteTodo, toggleTodo, getTodo } from "../redux/todos/actions"
 
 const TodoList = () => {
-    const [todos, setTodos] = useState([
-        { id: 1, text: "Learn React", completed: false },
-        { id: 2, text: "Build a To-Do List", completed: false },
-        { id: 3, text: "Celebrate", completed: false },
-    ]);
+  const todos = useSelector((state) => state.todo.todos);
+  const lang =  useSelector((state) => state.lang.lang);
+  const dispatch = useDispatch();
+
 
   return (
     <ul className="list-group">
@@ -21,14 +22,24 @@ const TodoList = () => {
               cursor: "pointer",
               textDecoration: todo.completed ? "line-through" : "none",
             }}
+            onClick={() => dispatch(toggleTodo(todo.id))}
           >
             {todo.text}
           </span>
-          <button
-            className="btn btn-danger btn-sm"
-          >
-            Delete
-          </button>
+          <div className="btn-group">
+            <button
+              onClick={() =>dispatch(getTodo(todo))}
+              className="btn btn-warning btn-sm"
+            >
+              {lang === 'en' ? "Edit" : "Sunting"}
+            </button>
+            <button
+              onClick={() => dispatch(deleteTodo(todo.id))}
+              className="btn btn-danger btn-sm"
+            >
+              {lang === 'en' ? "Delete" : "Hapus"}
+            </button>
+          </div>
         </li>
       ))}
     </ul>
