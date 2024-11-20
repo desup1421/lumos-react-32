@@ -1,0 +1,34 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "text": "Learn React",
+      "completed": true
+    },
+    {
+      "id": "2",
+      "text": "Playing video game",
+      "completed": false
+    },
+    {
+      "id": "3",
+      "text": "Watch an anime",
+      "completed": false
+    },
+    {
+      "id": "5",
+      "text": "Build a To-Do List",
+      "completed": true
+    },
+    {
+      "id": "5fc9bc94-9bcc-4286-9589-eb7fc0261089",
+      "text": "Kill someone",
+      "completed": true
+    },
+    {
+      "id": "e747f50e-3dfb-4d5a-a406-bfa95994b661",
+      "text": "test",
+      "completed": false
+    }
+  ]
+}
